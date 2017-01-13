@@ -29,6 +29,7 @@ RED = "\033[31m"
 GREEN = "\033[32m"
 YELLOW = "\033[33m"
 BLUE = "\033[34m"
+DARK_BLUE = "\033[38;5;20m"
 MAGENTA = "\033[35m"
 CYAN = "\033[36m"
 WHITE = "\033[97m"
@@ -36,6 +37,7 @@ WHITE = "\033[97m"
 # Bash background color escape sequences
 BLACK_BG = "\033[40m"
 BLUE_BG = "\033[44m"
+DARK_BLUE_BG = "\033[48;5;20m"
 WHITE_BG = "\033[107m"
 GRAY_BG = "\033[100m"
 RED_BG = "\033[41m"
@@ -197,19 +199,25 @@ BANNER_NO_UPDATE_NEEDED = load_banner("ascii/no_update_needed.txt")
 
 def main():
 
-  text = \
-"""Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat noncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat noncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat noncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat noncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat noncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat noncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat noncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat noncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat noncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat noncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat noncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat noncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat noncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat noncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidattttat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum."""
+  while True:
+    preview_all_banners()
 
-  print_banner(BANNER_UPDATED, color=GREEN, show_for=3, text=text, sound=WON)
-  print_banner(BANNER_DEFENDED, color=BLUE, color_bg=YELLOW_BG, show_for=3, text=text, sound=TADA)
-  print_banner(BANNER_FROZEN, color=CYAN, color_bg=GRAY_BG, show_for=3, sound=ICE)
-  print_banner(BANNER_COMPROMISED, color=RED, color_bg=BLACK_BG, show_for=3, sound=SATAN)
-  print_banner(BANNER_HACKED, color=RED, color_bg=BLACK_BG, show_for=3, text=text, sound=DOOMED)
-  print_banner(BANNER_REPLAY, color=RED, color_bg=BLACK_BG, show_for=3, sound=WITCH)
-  print_banner(BANNER_NO_UPDATE_NEEDED, color=RED, color_bg=BLACK_BG, show_for=3)
+
+def preview_all_banners():
+  text = "The details of the update or attack will appear here."
+
+  #print_banner(BANNER_UPDATED, color=GREEN, show_for=3, text=text, sound=WON)
+  print_banner(BANNER_UPDATED, color=WHITE+GREEN_BG, show_for=4, text=text, sound=WON)
+  print_banner(BANNER_DEFENDED, color=WHITE+DARK_BLUE_BG, show_for=4, text=text, sound=TADA)
+  print_banner(BANNER_FROZEN, color=CYAN+GRAY_BG, show_for=4, text=text, sound=ICE)
+  #print_banner(BANNER_COMPROMISED, color=RED, color_bg=BLACK_BG, show_for=3, sound=SATAN)
+  print_banner(BANNER_COMPROMISED, color=WHITE+RED_BG, show_for=4, text=text, sound=SATAN)
+  #print_banner(BANNER_HACKED, color=RED, color_bg=BLACK_BG, show_for=3, text=text, sound=DOOMED)
+  print_banner(BANNER_HACKED, color=WHITE+RED_BG, show_for=4, text=text, sound=DOOMED)
+  #print_banner(BANNER_REPLAY, color=RED, color_bg=BLACK_BG, show_for=3, sound=WITCH)
+  #print_banner(BANNER_NO_UPDATE_NEEDED, color=RED, color_bg=BLACK_BG, show_for=3)
+  #print_banner(BANNER_REPLAY, color=RED, color_bg=BLACK_BG, show_for=3, sound=WITCH)
+  #print_banner(BANNER_NO_UPDATE_NEEDED, color=RED, color_bg=BLACK_BG, show_for=3)
 
 
 
